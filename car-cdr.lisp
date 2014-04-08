@@ -1,16 +1,18 @@
+;;; demonstration of all the functions that combine the various ca/dr
 
-;; nested patterns
-(setq n42 '(((((a) i) (e) m) ((c) k) (g) o) 
+(setq nested-list '(((((a) i) (e) m) ((c) k) (g) o) 
 	    (((b) j) (f) n) ((d) l) (h) p))
 
+;; apply in turn each of the functions f
 (let 
-    ((nested (list n42)))
+    ((nested (list nested-list)))
   (loop for f in '(car cdr caar cadr cdar cddr caaar caadr cadar
 		       caddr cdaar cdadr cddar cdddr caaaar caaadr
 		       caadar caaddr cadaar cadadr caddar cadddr
 		       cdaaar cdaadr cdadar cdaddr cddaar cddadr cdddar cddddr)
 	do (format t "~{~a ~a~%~a ~%~}~%" (list f nested (apply f nested)))))
 
+;; each pair shows the function with the nested list followed by the return value
 
 ;; CAR ((((((A) I) (E) M) ((C) K) (G) O) (((B) J) (F) N) ((D) L) (H) P))
 ;; ((((A) I) (E) M) ((C) K) (G) O) 
