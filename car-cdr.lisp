@@ -1,7 +1,8 @@
 ;;; demonstration of all the functions that combine the various ca/dr
 
 (setq nested-list '(((((a) i) (e) m) ((c) k) (g) o) 
-	    (((b) j) (f) n) ((d) l) (h) p))
+		    (((b) j) (f) n) ((d) l) (h) p))
+
 
 ;; apply in turn each of the functions f
 (let 
